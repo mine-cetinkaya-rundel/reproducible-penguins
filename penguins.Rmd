@@ -1,0 +1,23 @@
+---
+title: "Reproducible penguins"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, message = FALSE}
+library(tidyverse)
+```
+
+# Meet the Palmer Penguins
+
+Here are your penguins:
+
+[![Artwork by \@allison_horst](images/penguins.png "Palmer Penguins"){width="400"}](https://allisonhorst.github.io/palmerpenguins/articles/art.html)
+
+## Loading data
+
+```{r load-data, message = FALSE}
+penguins <- read_csv("data/penguins.csv")
+glimpse(penguins)
+```

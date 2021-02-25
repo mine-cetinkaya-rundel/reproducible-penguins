@@ -1,0 +1,16 @@
+---
+title: "Project proposal"
+output: html_document
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(here)
+```
+
+## Loading data
+
+```{r load-data, message = FALSE}
+penguins <- read_csv(here::here("data/penguins.csv"))
+glimpse(penguins)
+```
