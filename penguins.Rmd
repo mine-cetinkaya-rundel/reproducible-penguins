@@ -7,17 +7,44 @@ editor_options:
 
 ```{r setup, message = FALSE}
 library(tidyverse)
+library(palmerpenguins)
 ```
 
-# Meet the Palmer Penguins
+# Meet Quarto
 
-Here are your penguins:
+Quarto enables you to weave together content and executable code into a finished document.
+To learn more about Quarto see <https://quarto.org>.
+
+# Meet the penguins
+
+The `penguins` data from the [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins "palmerpenguins R package") package contains size measurements for a bunch of penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.
 
 [![Artwork by \@allison_horst](images/penguins.png "Palmer Penguins"){width="400"}](https://allisonhorst.github.io/palmerpenguins/articles/art.html)
 
-## Loading data
+## Data
 
-```{r load-data, message = FALSE}
-penguins <- read_csv("data/penguins.csv")
+Let's take a peek at the data.
+
+```{r load-data}
 glimpse(penguins)
+```
+
+## Visualization
+
+Below is a visualization of the data.
+
+```{r plot-penguins, warning = FALSE}
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm, y = bill_length_mm)
+) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
 ```
